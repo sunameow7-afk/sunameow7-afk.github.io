@@ -54,16 +54,19 @@
   .card p{color:var(--mut);font-size:14.5px}
 
   /* SCREENSHOTS */
-  .shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:44px}
-  .shot{background:var(--card);border:1px dashed #4c3a8f;border-radius:16px;padding:20px;text-align:center;min-height:210px;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
-  .shot .cam{color:#a78bfa;opacity:.85;display:flex;justify-content:center}
-  .shot .cam svg{width:34px;height:34px}
-  .shot b{font-size:16px}
-  .shot span{color:var(--mut);font-size:13px}
-  /* When you add real images, drop them in a /screens folder and replace each
-     .shot div with:  <img class="real" src="screens/main-panel.png" alt="Main panel">
-     .real{width:100%;border-radius:16px;border:1px solid var(--line);display:block} */
+  .shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;margin-top:44px}
+  .shot{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.2s;
+    display:flex;flex-direction:column;cursor:zoom-in}
+  .shot:hover{transform:translateY(-3px);border-color:#4c3a8f;box-shadow:0 12px 40px rgba(0,0,0,.45)}
+  .shot img{width:100%;display:block;border-bottom:1px solid var(--line)}
+  .shot .cap{padding:14px 18px 16px;text-align:left}
+  .shot .cap b{font-size:15.5px;display:block;color:var(--txt)}
+  .shot .cap span{color:var(--mut);font-size:13px}
+  /* lightbox zoom viewer */
+  #lb{position:fixed;inset:0;background:rgba(5,3,12,.88);backdrop-filter:blur(6px);display:none;
+    align-items:center;justify-content:center;z-index:99;cursor:zoom-out;padding:30px}
+  #lb img{max-width:96vw;max-height:92vh;border-radius:14px;border:1px solid #4c3a8f;
+    box-shadow:0 30px 90px rgba(0,0,0,.7)}
 
   /* STEPS */
   .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:44px;counter-reset:st}
@@ -127,11 +130,12 @@
       <h2>Clean, modern, one-click.</h2>
       <p class="sub">No menus buried five levels deep — pick a panel, hit the button, done.</p>
     </div>
-    <!-- TODO: replace these placeholders with real screenshots (see comment in the CSS) -->
     <div class="shots">
-      <div class="shot"><span class="cam"><i data-lucide="monitor"></i></span><b>Main Panel</b><span>System cleaners — temp, prefetch, event logs, DNS cache and more</span></div>
-      <div class="shot"><span class="cam"><i data-lucide="globe"></i></span><b>Network &amp; Browser</b><span>Wipe DNS caches, histories and connection traces</span></div>
-      <div class="shot"><span class="cam"><i data-lucide="dna"></i></span><b>Advanced</b><span>Deep cleanup for power users — timeline, GUIDs, USB traces</span></div>
+      <figure class="shot" onclick="lb(this)"><img src="screens/main-panel.png" alt="Main Panel" loading="lazy"><figcaption class="cap"><b>Main Panel</b><span>20 system cleaners — temp, prefetch, event logs, browser history and more</span></figcaption></figure>
+      <figure class="shot" onclick="lb(this)"><img src="screens/network-browser.png" alt="Network &amp; Browser" loading="lazy"><figcaption class="cap"><b>Network &amp; Browser</b><span>Wipe DNS caches, histories and connection traces — one click each</span></figcaption></figure>
+      <figure class="shot" onclick="lb(this)"><img src="screens/memory-tools.png" alt="Memory Tools" loading="lazy"><figcaption class="cap"><b>Memory Tools</b><span>Clean strings straight out of process memory — svchost, explorer, lsass</span></figcaption></figure>
+      <figure class="shot" onclick="lb(this)"><img src="screens/advanced.png" alt="Advanced" loading="lazy"><figcaption class="cap"><b>Advanced</b><span>Deep cleanup for power users — timeline, GUIDs, USB traces, ETL logs</span></figcaption></figure>
+      <figure class="shot" onclick="lb(this)"><img src="screens/trace-scanner.png" alt="Trace Scanner" loading="lazy"><figcaption class="cap"><b>Trace Scanner</b><span>Type any name — DTF finds every leftover file, registry entry and log it left</span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -164,7 +168,13 @@
 
 <script>
   lucide.createIcons();
+  function lb(fig){
+    var v=document.getElementById('lb');
+    v.querySelector('img').src=fig.querySelector('img').src;
+    v.style.display='flex';
+  }
 </script>
+<div id="lb" onclick="this.style.display='none'"><img src="" alt=""></div>
 
 <!-- anti-inspect deterrent: blocks F12 / Ctrl+Shift+I/J/C / Ctrl+U / Ctrl+S / right-click.
      Nothing sensitive lives in this page anyway - secrets stay server-side. -->
