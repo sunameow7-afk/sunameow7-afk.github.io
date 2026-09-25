@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DTF — The Most Updated Cleaner on the Market</title>
 <meta name="description" content="DTF cleaner — string cleaner, trace scanner with 30+ one-click cleaners, memory tools and self-destruct. Get your key in our Discord.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%B9%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23171130'/%3E%3Ctext x='16' y='22' font-family='Segoe UI,Arial' font-size='16' font-weight='800' fill='%238b5cf6' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
+<script src="https://unpkg.com/lucide@latest"></script>
 <style>
   :root{
     --bg:#0b0817; --bg2:#120d24; --card:#171130; --card2:#1d1640;
@@ -31,7 +32,9 @@
   .btn-ghost{border:1px solid var(--line);color:var(--txt)}
   .btn-ghost:hover{border-color:var(--acc);background:rgba(139,92,246,.08)}
   .badges{margin-top:34px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-  .badge{font-size:13px;color:#c4b5fd;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px}
+  .badge{font-size:13px;color:#c4b5fd;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;
+    display:inline-flex;align-items:center;gap:7px}
+  .badge svg{width:15px;height:15px;stroke:#c4b5fd}
 
   /* SECTIONS */
   section{padding:72px 0}
@@ -44,8 +47,9 @@
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:44px}
   .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;transition:.2s}
   .card:hover{transform:translateY(-3px);border-color:#4c3a8f;background:var(--card2)}
-  .card .ico{font-size:28px;margin-bottom:14px;display:inline-block;background:rgba(139,92,246,.12);
-    border:1px solid var(--line);width:54px;height:54px;border-radius:12px;text-align:center;line-height:52px}
+  .card .ico{margin-bottom:14px;background:rgba(139,92,246,.12);border:1px solid var(--line);
+    width:54px;height:54px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#a78bfa}
+  .card .ico svg{width:26px;height:26px}
   .card h3{font-size:18px;margin-bottom:8px}
   .card p{color:var(--mut);font-size:14.5px}
 
@@ -53,7 +57,8 @@
   .shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:44px}
   .shot{background:var(--card);border:1px dashed #4c3a8f;border-radius:16px;padding:20px;text-align:center;min-height:210px;
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
-  .shot .cam{font-size:34px;opacity:.85}
+  .shot .cam{color:#a78bfa;opacity:.85;display:flex;justify-content:center}
+  .shot .cam svg{width:34px;height:34px}
   .shot b{font-size:16px}
   .shot span{color:var(--mut);font-size:13px}
   /* When you add real images, drop them in a /screens folder and replace each
@@ -74,6 +79,7 @@
   .final h2{margin-bottom:12px}
   .final p{color:var(--mut);max-width:520px;margin:0 auto 34px}
   footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:#7a72a3;font-size:13px}
+  .btn svg{width:18px;height:18px}
 </style>
 </head>
 <body>
@@ -88,10 +94,10 @@
       <a class="btn btn-ghost" href="#features">See features</a>
     </div>
     <div class="badges">
-      <span class="badge">🧹 String Cleaner</span>
-      <span class="badge">🔍 Trace Scanner</span>
-      <span class="badge">⚡ 30+ One-Click Cleaners</span>
-      <span class="badge">💀 Self-Destruct</span>
+      <span class="badge"><i data-lucide="sparkles"></i> String Cleaner</span>
+      <span class="badge"><i data-lucide="search"></i> Trace Scanner</span>
+      <span class="badge"><i data-lucide="zap"></i> 30+ One-Click Cleaners</span>
+      <span class="badge"><i data-lucide="skull"></i> Self-Destruct</span>
     </div>
   </div>
 </header>
@@ -104,12 +110,12 @@
       <p class="sub">Built for people who want their machine spotless — every trace, every string, every log.</p>
     </div>
     <div class="grid">
-      <div class="card"><span class="ico">🧹</span><h3>String Cleaner</h3><p>Scrubs hardcoded strings straight out of process memory (RAM) — wipes cheat and tool traces from the processes that matter.</p></div>
-      <div class="card"><span class="ico">🔍</span><h3>Trace Scanner</h3><p>Deep-scans EXEs, prefetch, recent files, registry keys, UserAssist, BAM, DNS cache and more — finds what other cleaners miss.</p></div>
-      <div class="card"><span class="ico">⚡</span><h3>30+ One-Click Cleaners</h3><p>Temp, prefetch, crash dumps, event logs, ShellBag, jump lists, AmCache, Shimcache, USB traces — all one click away.</p></div>
-      <div class="card"><span class="ico">🧠</span><h3>Memory Tools</h3><p>Overwrite memory, wipe SPP machine GUIDs, NVIDIA data, Windows Timeline, EtwTrace and DiagTrack in seconds.</p></div>
-      <div class="card"><span class="ico">🌐</span><h3>Network &amp; Browser</h3><p>DNS cache, data usage, form history, browser history, run history, MRU registry — your online trails, gone.</p></div>
-      <div class="card"><span class="ico">💀</span><h3>Self-Destruct</h3><p>One click and DTF removes itself from the machine completely — nothing left behind.</p></div>
+      <div class="card"><span class="ico"><i data-lucide="sparkles"></i></span><h3>String Cleaner</h3><p>Scrubs hardcoded strings straight out of process memory (RAM) — wipes cheat and tool traces from the processes that matter.</p></div>
+      <div class="card"><span class="ico"><i data-lucide="search"></i></span><h3>Trace Scanner</h3><p>Deep-scans EXEs, prefetch, recent files, registry keys, UserAssist, BAM, DNS cache and more — finds what other cleaners miss.</p></div>
+      <div class="card"><span class="ico"><i data-lucide="zap"></i></span><h3>30+ One-Click Cleaners</h3><p>Temp, prefetch, crash dumps, event logs, ShellBag, jump lists, AmCache, Shimcache, USB traces — all one click away.</p></div>
+      <div class="card"><span class="ico"><i data-lucide="brain"></i></span><h3>Memory Tools</h3><p>Overwrite memory, wipe SPP machine GUIDs, NVIDIA data, Windows Timeline, EtwTrace and DiagTrack in seconds.</p></div>
+      <div class="card"><span class="ico"><i data-lucide="globe"></i></span><h3>Network &amp; Browser</h3><p>DNS cache, data usage, form history, browser history, run history, MRU registry — your online trails, gone.</p></div>
+      <div class="card"><span class="ico"><i data-lucide="skull"></i></span><h3>Self-Destruct</h3><p>One click and DTF removes itself from the machine completely — nothing left behind.</p></div>
     </div>
   </div>
 </section>
@@ -123,9 +129,9 @@
     </div>
     <!-- TODO: replace these placeholders with real screenshots (see comment in the CSS) -->
     <div class="shots">
-      <div class="shot"><span class="cam">🖥️</span><b>Main Panel</b><span>System cleaners — temp, prefetch, event logs, DNS cache and more</span></div>
-      <div class="shot"><span class="cam">🌐</span><b>Network &amp; Browser</b><span>Wipe DNS caches, histories and connection traces</span></div>
-      <div class="shot"><span class="cam">🧬</span><b>Advanced</b><span>Deep cleanup for power users — timeline, GUIDs, USB traces</span></div>
+      <div class="shot"><span class="cam"><i data-lucide="monitor"></i></span><b>Main Panel</b><span>System cleaners — temp, prefetch, event logs, DNS cache and more</span></div>
+      <div class="shot"><span class="cam"><i data-lucide="globe"></i></span><b>Network &amp; Browser</b><span>Wipe DNS caches, histories and connection traces</span></div>
+      <div class="shot"><span class="cam"><i data-lucide="dna"></i></span><b>Advanced</b><span>Deep cleanup for power users — timeline, GUIDs, USB traces</span></div>
     </div>
   </div>
 </section>
@@ -148,13 +154,33 @@
   <div class="wrap">
     <h2>Ready to run clean?</h2>
     <p>Keys, downloads and support are handled in our Discord. Join and open a ticket.</p>
-    <a class="btn btn-discord" href="https://discord.gg/QrhNXFGh7e" target="_blank" rel="noopener">💬 discord.gg/QrhNXFGh7e</a>
+    <a class="btn btn-discord" href="https://discord.gg/QrhNXFGh7e" target="_blank" rel="noopener"><i data-lucide="message-circle"></i> discord.gg/QrhNXFGh7e</a>
   </div>
 </section>
 
 <footer>
   <div class="wrap">© 2026 DTF — All rights reserved.</div>
 </footer>
+
+<script>
+  lucide.createIcons();
+</script>
+
+<!-- anti-inspect deterrent: blocks F12 / Ctrl+Shift+I/J/C / Ctrl+U / Ctrl+S / right-click.
+     Nothing sensitive lives in this page anyway - secrets stay server-side. -->
+<script>
+(function(){
+  "use strict";
+  function b(e){e.preventDefault();e.stopPropagation();return false}
+  document.addEventListener("contextmenu",b);
+  document.addEventListener("keydown",function(e){
+    var k=(e.key||"").toLowerCase();
+    if(e.key==="F12")return b(e);
+    if(e.ctrlKey&&e.shiftKey&&(k==="i"||k==="j"||k==="c"))return b(e);
+    if((e.ctrlKey||e.metaKey)&&(k==="u"||k==="s"))return b(e);
+  });
+})();
+</script>
 
 </body>
 </html>
