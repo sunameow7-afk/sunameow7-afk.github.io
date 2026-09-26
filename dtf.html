@@ -119,6 +119,16 @@
   .step h3{font-size:17px;margin-bottom:6px}
   .step p{color:var(--mut);font-size:14.5px}
 
+  /* WHY strip */
+  .why{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:52px}
+  .why .w{background:rgba(23,17,48,.82);border:1px solid var(--line);border-radius:18px;padding:38px 26px;text-align:center;transition:.25s}
+  .why .w:hover{transform:translateY(-4px);border-color:#4c3a8f;box-shadow:0 14px 44px rgba(139,92,246,.22)}
+  .why .w .ico{width:56px;height:56px;margin:0 auto 18px;border-radius:15px;display:flex;align-items:center;justify-content:center;
+    background:rgba(139,92,246,.14);border:1px solid var(--line);color:#a78bfa}
+  .why .w .ico svg{width:27px;height:27px}
+  .why .w b{display:block;font-size:30px;color:#c4b5fd;margin-bottom:8px;letter-spacing:-.5px}
+  .why .w span{color:var(--mut);font-size:15px;line-height:1.55}
+
   /* FAQ */
   .faq{max-width:760px;margin:44px auto 0}
   .qa{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
@@ -173,6 +183,18 @@
       <div class="card rv"><div class="ico"><i data-lucide="brain"></i></div><h3>Memory Tools</h3><p>Clear RAM, jump lists and in-memory activity trails that normal cleaners never touch.</p></div>
       <div class="card rv"><div class="ico"><i data-lucide="skull"></i></div><h3>Self-Destruct</h3><p>Closing DTF wipes everything — files, registry, prefetch, browser evidence — and deletes itself.</p></div>
       <div class="card rv"><div class="ico"><i data-lucide="shield-check"></i></div><h3>Verified Clean</h3><p>After every wipe, a final scan checks for leftovers and shows the honest result on screen.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="rv center"><div class="kicker">Why DTF</div></div>
+    <div class="why">
+      <div class="w rv"><div class="ico"><i data-lucide="mouse-pointer-click"></i></div><b>1 click</b><span>from download to running — no commands</span></div>
+      <div class="w rv"><div class="ico"><i data-lucide="skull"></i></div><b>0 traces</b><span>self-destruct wipes everything on close</span></div>
+      <div class="w rv"><div class="ico"><i data-lucide="shield-check"></i></div><b>Verified</b><span>a final scan proves the clean on screen</span></div>
+      <div class="w rv"><div class="ico"><i data-lucide="message-circle"></i></div><b>24/7</b><span>keys, support and updates in our Discord</span></div>
     </div>
   </div>
 </section>

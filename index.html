@@ -89,16 +89,16 @@
   .sub{color:var(--mut);margin-top:10px;max-width:620px}
   .center{text-align:center}.center .sub{margin-left:auto;margin-right:auto}
 
-  /* PRODUCTS */
-  .prods{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:44px}
-  .prod{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px;position:relative;transition:.25s;overflow:hidden;
+  /* PRODUCTS — the home page's main event */
+  .prods{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:24px;margin-top:56px}
+  .prod{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:44px 38px;position:relative;transition:.25s;overflow:hidden;
     display:block;text-decoration:none;color:inherit}
   .prod:hover{transform:translateY(-4px);border-color:#4c3a8f;background:var(--card2)}
-  .prod .pico{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+  .prod .pico{width:68px;height:68px;border-radius:17px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;
     background:rgba(139,92,246,.12);border:1px solid var(--line);color:#a78bfa}
-  .prod .pico svg{width:27px;height:27px}
-  .prod h3{font-size:19px;margin-bottom:8px}
-  .prod p{color:var(--mut);font-size:14.5px}
+  .prod .pico svg{width:33px;height:33px}
+  .prod h3{font-size:26px;margin-bottom:10px;letter-spacing:-.3px}
+  .prod p{color:var(--mut);font-size:16px;line-height:1.65}
   .prod .tag{position:absolute;top:18px;right:18px;font-size:11px;font-weight:800;letter-spacing:1.5px;
     border-radius:999px;padding:5px 12px}
   .tag-live{background:rgba(34,197,94,.14);color:#86efac;border:1px solid rgba(34,197,94,.35)}
@@ -107,7 +107,7 @@
   .prod.soon::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(139,92,246,.06) 50%,transparent 70%);
     background-size:220% 100%;animation:sheen 3.4s linear infinite;pointer-events:none}
   @keyframes sheen{0%{background-position:120% 0}100%{background-position:-120% 0}}
-  .prod .open{display:inline-flex;align-items:center;gap:7px;margin-top:20px;color:#c4b5fd;font-weight:700;font-size:14.5px}
+  .prod .open{display:inline-flex;align-items:center;gap:7px;margin-top:26px;color:#c4b5fd;font-weight:700;font-size:16px}
   .prod .open svg{width:16px;height:16px;transition:.2s}
   .prod:hover .open svg{transform:translateX(4px)}
 
@@ -144,7 +144,6 @@
     <a class="brand" href="index.html"><img class="logo-anim" src="logo.svg" alt="DTF logo" width="40" height="40"> DTF</a>
     <div class="nav-links">
       <a href="#products">Products</a>
-      <a href="#why">Why DTF</a>
     </div>
     <div class="nav-cta">
       <a class="nav-btn nav-acc" href="dtf.html">DTF Cleaner</a>
@@ -182,19 +181,6 @@
         <h3>DTF Opti — PC Optimizer</h3>
         <p>Squeeze maximum, safe performance out of your rig — built for mid-tier PCs that deserve high-tier FPS, and big rigs that just run average. Debloat, tune and optimize the safe way. In development.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ WHY ============ -->
-<section id="why">
-  <div class="wrap">
-    <div class="rv center"><div class="kicker">Why DTF</div></div>
-    <div class="why">
-      <div class="w rv"><div class="ico"><i data-lucide="mouse-pointer-click"></i></div><b>1 click</b><span>from download to running — no commands</span></div>
-      <div class="w rv"><div class="ico"><i data-lucide="skull"></i></div><b>0 traces</b><span>self-destruct wipes everything on close</span></div>
-      <div class="w rv"><div class="ico"><i data-lucide="shield-check"></i></div><b>Verified</b><span>a final scan proves the clean on screen</span></div>
-      <div class="w rv"><div class="ico"><i data-lucide="message-circle"></i></div><b>24/7</b><span>keys, support and updates in our Discord</span></div>
     </div>
   </div>
 </section>
