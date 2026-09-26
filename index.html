@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DTF — The Most Updated Cleaner on the Market</title>
-<meta name="description" content="DTF cleaner — string cleaner, trace scanner with 30+ one-click cleaners, memory tools and self-destruct. Get your key in our Discord.">
+<meta name="description" content="DTF cleaner — string cleaner, trace scanner with 30+ one-click cleaners, memory tools and self-destruct. One-click launcher, get your key in our Discord.">
 <script src="https://unpkg.com/lucide@latest"></script>
 <style>
   :root{
@@ -14,46 +14,97 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--txt);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 22px}
 
-  /* HERO */
-  .hero{position:relative;text-align:center;padding:110px 0 80px;
-    background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(139,92,246,.22),transparent 70%),var(--bg)}
-  .logo{display:inline-block;font-size:19px;font-weight:800;letter-spacing:8px;color:#c4b5fd;
-    border:1px solid var(--line);border-radius:999px;padding:11px 30px 11px 34px;margin-bottom:28px;background:rgba(139,92,246,.08);
-    box-shadow:0 0 40px rgba(139,92,246,.15)}
-  h1{font-size:clamp(40px,7vw,72px);font-weight:900;letter-spacing:-1px;line-height:1.05}
-  h1 .grad{background:linear-gradient(90deg,#a78bfa,#8b5cf6 55%,#7c3aed);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .hero p{max-width:640px;margin:22px auto 0;color:var(--mut);font-size:18px}
-  .cta-row{margin-top:38px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-  .btn{display:inline-flex;align-items:center;gap:9px;padding:15px 34px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none;transition:.2s}
-  .btn-discord{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;box-shadow:0 8px 30px rgba(139,92,246,.35)}
-  .btn-discord:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(139,92,246,.5)}
+  /* ============ STICKY TOP NAV ============ */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(11,8,23,.82);backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:5px;font-size:16px;color:#fff;text-decoration:none}
+  .brand .dot{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,var(--acc),var(--acc2));font-size:12px;letter-spacing:0;
+    box-shadow:0 0 18px rgba(139,92,246,.5)}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{color:var(--mut);text-decoration:none;font-size:14.5px;font-weight:600;transition:.2s}
+  .nav-links a:hover{color:#fff}
+  .nav-cta{display:flex;gap:10px;align-items:center}
+  .nav-btn{padding:9px 18px;border-radius:10px;font-size:13.5px;font-weight:700;text-decoration:none;transition:.2s}
+  .nav-ghost{color:#c4b5fd;border:1px solid var(--line)}
+  .nav-ghost:hover{border-color:var(--acc);background:rgba(139,92,246,.1)}
+  .nav-acc{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;box-shadow:0 4px 18px rgba(139,92,246,.35)}
+  .nav-acc:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(139,92,246,.5)}
+  @media(max-width:820px){.nav-links{display:none}}
 
-  /* hero install-command row */
-  .cmd-row{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:18px}
-  .cmd-row code{background:rgba(139,92,246,.08);border:1px solid var(--line);border-radius:10px;
-    padding:12px 16px;font-size:13.5px;color:#c4b5fd;font-family:'Consolas',monospace;
-    white-space:nowrap;overflow-x:auto;max-width:100%}
+  /* ============ ANIMATED AURORA HERO ============ */
+  .hero{position:relative;overflow:hidden;padding:130px 0 110px;text-align:left}
+  .aurora{position:absolute;inset:0;z-index:0;pointer-events:none}
+  .aurora .orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;
+    animation:drift 16s ease-in-out infinite alternate}
+  .orb.o1{width:560px;height:560px;background:#7c3aed;top:-180px;left:-120px}
+  .orb.o2{width:460px;height:460px;background:#4c1d95;bottom:-160px;right:-80px;animation-delay:-6s}
+  .orb.o3{width:340px;height:340px;background:#a855f7;top:30%;right:22%;opacity:.28;animation-delay:-11s}
+  @keyframes drift{
+    0%{transform:translate(0,0) scale(1)}
+    50%{transform:translate(60px,-40px) scale(1.12)}
+    100%{transform:translate(-40px,50px) scale(.94)}
+  }
+  .hero .wrap{position:relative;z-index:1}
+  .hero-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(23,17,48,.85);
+    border:1px solid var(--line);border-radius:999px;padding:9px 20px 9px 10px;margin-bottom:26px;
+    font-size:13.5px;letter-spacing:2.5px;font-weight:700;color:#c4b5fd}
+  .hero-pill .pdot{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--acc),var(--acc2));
+    display:flex;align-items:center;justify-content:center;box-shadow:0 0 14px rgba(139,92,246,.6)}
+  .hero h1{font-size:clamp(40px,6.5vw,76px);font-weight:900;letter-spacing:-1.5px;line-height:1.04;max-width:820px}
+  .hero h1 .grad{background:linear-gradient(90deg,#c4b5fd,#8b5cf6 55%,#7c3aed);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .lead{max-width:600px;margin-top:22px;color:var(--mut);font-size:17.5px}
+  .cta-row{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:15px 32px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none;transition:.2s}
+  .btn-discord{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;box-shadow:0 8px 30px rgba(139,92,246,.4);
+    animation:pulseGlow 3.2s ease-in-out infinite}
+  .btn-discord:hover{transform:translateY(-2px)}
+  @keyframes pulseGlow{0%,100%{box-shadow:0 8px 30px rgba(139,92,246,.35)}50%{box-shadow:0 8px 46px rgba(139,92,246,.65)}}
+  .btn-ghost{border:1px solid var(--line);color:var(--txt);background:rgba(23,17,48,.6)}
+  .btn-ghost:hover{border-color:var(--acc);background:rgba(139,92,246,.08)}
+
+  /* install command row */
+  .cmd-row{display:flex;align-items:center;gap:10px;margin-top:20px;flex-wrap:wrap}
+  .cmd-row code{background:rgba(11,8,23,.7);border:1px solid var(--line);border-radius:10px;
+    padding:12px 16px;font-size:13px;color:#c4b5fd;font-family:'Consolas',monospace;max-width:100%;overflow-x:auto}
   .copy-btn{display:flex;align-items:center;gap:6px;background:rgba(139,92,246,.15);color:#c4b5fd;
     border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:13px;font-weight:600;
     cursor:pointer;transition:.2s;font-family:inherit}
   .copy-btn:hover{background:rgba(139,92,246,.3);border-color:#4c3a8f}
   .copy-btn.ok{color:#86efac;border-color:#14532d;background:rgba(34,197,94,.12)}
-  .cmd-hint{color:var(--mut);font-size:13px;margin-top:10px}
-  .btn-ghost{border:1px solid var(--line);color:var(--txt)}
-  .btn-ghost:hover{border-color:var(--acc);background:rgba(139,92,246,.08)}
-  .badges{margin-top:34px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-  .badge{font-size:14.5px;color:#c4b5fd;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:9px 18px;
-    display:inline-flex;align-items:center;gap:8px}
-  .badge svg{width:17px;height:17px;stroke:#c4b5fd}
+  .cmd-hint{color:var(--mut);font-size:13px;margin-top:8px}
+
+  /* fade-up on scroll */
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .rv.in{opacity:1;transform:none}
 
   /* SECTIONS */
-  section{padding:72px 0}
-  .kicker{color:var(--acc);font-weight:800;font-size:15px;letter-spacing:4px;text-transform:uppercase;margin-bottom:12px}
+  section{padding:78px 0}
+  .kicker{color:var(--acc);font-weight:800;font-size:14px;letter-spacing:4px;text-transform:uppercase;margin-bottom:12px}
   h2{font-size:clamp(26px,4vw,38px);font-weight:800;letter-spacing:-.5px}
-  .sub{color:var(--mut);margin-top:10px;max-width:560px}
+  .sub{color:var(--mut);margin-top:10px;max-width:620px}
   .center{text-align:center}.center .sub{margin-left:auto;margin-right:auto}
+
+  /* PRODUCTS */
+  .prods{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:44px}
+  .prod{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px;position:relative;transition:.25s;overflow:hidden}
+  .prod:hover{transform:translateY(-4px);border-color:#4c3a8f;background:var(--card2)}
+  .prod .pico{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+    background:rgba(139,92,246,.12);border:1px solid var(--line);color:#a78bfa}
+  .prod .pico svg{width:27px;height:27px}
+  .prod h3{font-size:19px;margin-bottom:8px}
+  .prod p{color:var(--mut);font-size:14.5px}
+  .prod .tag{position:absolute;top:18px;right:18px;font-size:11px;font-weight:800;letter-spacing:1.5px;
+    border-radius:999px;padding:5px 12px}
+  .tag-live{background:rgba(34,197,94,.14);color:#86efac;border:1px solid rgba(34,197,94,.35)}
+  .tag-soon{background:rgba(250,204,21,.1);color:#fde047;border:1px solid rgba(250,204,21,.3)}
+  .prod.soon{opacity:.75}
+  .prod.soon::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(139,92,246,.06) 50%,transparent 70%);
+    background-size:220% 100%;animation:sheen 3.4s linear infinite}
+  @keyframes sheen{0%{background-position:120% 0}100%{background-position:-120% 0}}
 
   /* FEATURES */
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:44px}
@@ -74,7 +125,6 @@
   .shot .cap{padding:14px 18px 16px;text-align:left}
   .shot .cap b{font-size:15.5px;display:block;color:var(--txt)}
   .shot .cap span{color:var(--mut);font-size:13px}
-  /* lightbox zoom viewer */
   #lb{position:fixed;inset:0;background:rgba(5,3,12,.88);backdrop-filter:blur(6px);display:none;
     align-items:center;justify-content:center;z-index:99;cursor:zoom-out;padding:30px}
   #lb img{max-width:96vw;max-height:92vh;border-radius:14px;border:1px solid #4c3a8f;
@@ -88,101 +138,169 @@
   .step h3{font-size:17px;margin-bottom:6px}
   .step p{color:var(--mut);font-size:14.5px}
 
+  /* FAQ */
+  .faq{max-width:760px;margin:44px auto 0}
+  .qa{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+  .qa summary{cursor:pointer;padding:18px 22px;font-weight:700;font-size:15.5px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .qa summary::-webkit-details-marker{display:none}
+  .qa summary::after{content:"+";font-size:22px;color:var(--acc);font-weight:400;transition:.2s}
+  .qa[open] summary::after{transform:rotate(45deg)}
+  .qa .a{padding:0 22px 18px;color:var(--mut);font-size:14.5px}
+  .qa .a code{background:rgba(139,92,246,.1);border:1px solid var(--line);border-radius:6px;padding:2px 8px;font-size:12.5px;color:#c4b5fd}
+
   /* FINAL CTA */
-  .final{text-align:center;padding:90px 0;background:
-    radial-gradient(ellipse 55% 60% at 50% 100%,rgba(139,92,246,.2),transparent 70%),var(--bg)}
+  .final{text-align:center;padding:92px 0;position:relative;overflow:hidden;
+    background:radial-gradient(ellipse 55% 60% at 50% 100%,rgba(139,92,246,.2),transparent 70%),var(--bg)}
   .final h2{margin-bottom:12px}
   .final p{color:var(--mut);max-width:520px;margin:0 auto 34px}
   footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:#7a72a3;font-size:13px}
-  .btn svg{width:18px;height:18px}
 </style>
 </head>
 <body>
 
-<header class="hero">
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><span class="dot">D</span> DTF</a>
+    <div class="nav-links">
+      <a href="#products">Products</a>
+      <a href="#features">Features</a>
+      <a href="#showcase">Showcase</a>
+      <a href="#get">How It Works</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a class="nav-btn nav-acc" href="https://dtf-license.onrender.com/dtf.bat" download>Get DTF</a>
+      <a class="nav-btn nav-ghost" href="https://discord.gg/QrhNXFGh7e" target="_blank" rel="noopener">Join our Discord</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="aurora">
+    <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+  </div>
   <div class="wrap">
-    <span class="logo">D T F</span>
-    <h1>The most updated cleaner<br><span class="grad">on the market.</span></h1>
-    <p>DTF is a next-gen system cleaner featuring a string cleaner, a trace scanner with 30+ one-click cleaners, and self-destruct on top.</p>
+    <div class="hero-pill"><span class="pdot">D</span> DTF — YOUR #1 CLEANER</div>
+    <h1>Experience a <span class="grad">truly clean PC</span><br>with DTF</h1>
+    <p class="lead">The most updated cleaner on the market — a string cleaner, a trace scanner with 30+ one-click cleaners, memory tools and a full self-destruct. One click to run. Zero traces left.</p>
     <div class="cta-row">
-      <a class="btn btn-discord" href="https://dtf-license.onrender.com/dtf.bat" download><i data-lucide="mouse-pointer-click"></i> One-click launcher</a>
+      <a class="btn btn-discord" href="https://dtf-license.onrender.com/dtf.bat" download><i data-lucide="mouse-pointer-click"></i> Get DTF — one click</a>
       <a class="btn btn-ghost" href="https://discord.gg/QrhNXFGh7e" target="_blank" rel="noopener"><i data-lucide="message-circle"></i> Join the Discord</a>
     </div>
-    <div class="cmd-row"><code> irm https://dtf-license.onrender.com/get.ps1 | iex</code><button class="copy-btn" onclick="copyCmd(this)"><i data-lucide="copy"></i> Copy</button></div>
+    <div class="cmd-row"><code>irm https://dtf-license.onrender.com/get.ps1 | iex</code><button class="copy-btn" onclick="copyCmd(this)"><i data-lucide="copy"></i> Copy</button></div>
     <p class="cmd-hint">or paste the command in PowerShell (Admin) — same result</p>
-    <div class="badges">
-      <span class="badge"><i data-lucide="sparkles"></i> String Cleaner</span>
-      <span class="badge"><i data-lucide="search"></i> Trace Scanner</span>
-      <span class="badge"><i data-lucide="zap"></i> 30+ One-Click Cleaners</span>
-      <span class="badge"><i data-lucide="skull"></i> Self-Destruct</span>
-    </div>
   </div>
 </header>
 
+<!-- ============ PRODUCTS ============ -->
+<section id="products">
+  <div class="wrap">
+    <div class="rv"><div class="kicker">Products</div>
+    <h2>One brand. Built for speed and privacy.</h2>
+    <p class="sub">DTF is where we start — more tools are on the way.</p></div>
+    <div class="prods">
+      <div class="prod rv">
+        <span class="tag tag-live">● LIVE</span>
+        <div class="pico"><i data-lucide="skull"></i></div>
+        <h3>DTF — PC Cleaner</h3>
+        <p>The most updated cleaner on the market. String cleaner, trace scanner, 30+ one-click cleaners, memory tools and self-destruct. One-click launcher, zero leftovers — verified by its own final scan.</p>
+        <a class="btn btn-discord" style="margin-top:20px;padding:12px 24px;font-size:14.5px" href="https://dtf-license.onrender.com/dtf.bat" download>Get DTF</a>
+      </div>
+      <div class="prod soon rv">
+        <span class="tag tag-soon">COMING SOON</span>
+        <div class="pico"><i data-lucide="gauge"></i></div>
+        <h3>DTF Opti — PC Optimizer</h3>
+        <p>Squeeze maximum, safe performance out of your rig — built for mid-tier PCs that deserve high-tier FPS, and big rigs that just run average. Debloat, tune and optimize the safe way. In development.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
 <section id="features">
   <div class="wrap">
-    <div class="center">
-      <div class="kicker">Features</div>
-      <h2>Everything a cleaner should do. And more.</h2>
-      <p class="sub">Built for people who want their machine spotless — every trace, every string, every log.</p>
-    </div>
+    <div class="rv center"><div class="kicker">Inside DTF</div>
+    <h2>Everything a cleaner should do. And then some.</h2></div>
     <div class="grid">
-      <div class="card"><span class="ico"><i data-lucide="sparkles"></i></span><h3>String Cleaner</h3><p>Scrubs hardcoded strings straight out of process memory (RAM) — wipes cheat and tool traces from the processes that matter.</p></div>
-      <div class="card"><span class="ico"><i data-lucide="search"></i></span><h3>Trace Scanner</h3><p>Deep-scans EXEs, prefetch, recent files, registry keys, UserAssist, BAM, DNS cache and more — finds what other cleaners miss.</p></div>
-      <div class="card"><span class="ico"><i data-lucide="zap"></i></span><h3>30+ One-Click Cleaners</h3><p>Temp, prefetch, crash dumps, event logs, ShellBag, jump lists, AmCache, Shimcache, USB traces — all one click away.</p></div>
-      <div class="card"><span class="ico"><i data-lucide="brain"></i></span><h3>Memory Tools</h3><p>Overwrite memory, wipe SPP machine GUIDs, NVIDIA data, Windows Timeline, EtwTrace and DiagTrack in seconds.</p></div>
-      <div class="card"><span class="ico"><i data-lucide="globe"></i></span><h3>Network &amp; Browser</h3><p>DNS cache, data usage, form history, browser history, run history, MRU registry — your online trails, gone.</p></div>
-      <div class="card"><span class="ico"><i data-lucide="skull"></i></span><h3>Self-Destruct</h3><p>One click and DTF removes itself from the machine completely — nothing left behind.</p></div>
+      <div class="card rv"><div class="ico"><i data-lucide="sparkles"></i></div><h3>String Cleaner</h3><p>Wipes target strings straight out of process memory — svchost, explorer, lsass. Presets included.</p></div>
+      <div class="card rv"><div class="ico"><i data-lucide="search"></i></div><h3>Trace Scanner</h3><p>Type any name — DTF finds every leftover file, registry entry and log on every drive, then cleans them.</p></div>
+      <div class="card rv"><div class="ico"><i data-lucide="zap"></i></div><h3>30+ One-Click Cleaners</h3><p>Temp, prefetch, event logs, DNS, timelines, USB traces, ETL and more — one click each, live status.</p></div>
+      <div class="card rv"><div class="ico"><i data-lucide="brain"></i></div><h3>Memory Tools</h3><p>Clear RAM, jump lists and in-memory activity trails that normal cleaners never touch.</p></div>
+      <div class="card rv"><div class="ico"><i data-lucide="skull"></i></div><h3>Self-Destruct</h3><p>Closing DTF wipes everything — files, registry, prefetch, browser evidence — and deletes itself.</p></div>
+      <div class="card rv"><div class="ico"><i data-lucide="shield-check"></i></div><h3>Verified Clean</h3><p>After every wipe, a final scan checks for leftovers and shows the honest result on screen.</p></div>
     </div>
   </div>
 </section>
 
-<section id="screens" style="background:var(--bg2)">
+<!-- ============ SHOWCASE ============ -->
+<section id="showcase">
   <div class="wrap">
-    <div class="center">
-      <div class="kicker">Inside the app</div>
-      <h2>Clean, modern, one-click.</h2>
-      <p class="sub">No menus buried five levels deep — pick a panel, hit the button, done.</p>
-    </div>
+    <div class="rv center"><div class="kicker">Showcase</div>
+    <h2>Real screenshots. Real product.</h2></div>
     <div class="shots">
-      <figure class="shot" onclick="lb(this)"><img src="screens/main-panel.png" alt="Main Panel" loading="lazy"><figcaption class="cap"><b>Main Panel</b><span>20 system cleaners — temp, prefetch, event logs, browser history and more</span></figcaption></figure>
-      <figure class="shot" onclick="lb(this)"><img src="screens/network-browser.png" alt="Network &amp; Browser" loading="lazy"><figcaption class="cap"><b>Network &amp; Browser</b><span>Wipe DNS caches, histories and connection traces — one click each</span></figcaption></figure>
-      <figure class="shot" onclick="lb(this)"><img src="screens/memory-tools.png" alt="Memory Tools" loading="lazy"><figcaption class="cap"><b>Memory Tools</b><span>Clean strings straight out of process memory — svchost, explorer, lsass</span></figcaption></figure>
-      <figure class="shot" onclick="lb(this)"><img src="screens/advanced.png" alt="Advanced" loading="lazy"><figcaption class="cap"><b>Advanced</b><span>Deep cleanup for power users — timeline, GUIDs, USB traces, ETL logs</span></figcaption></figure>
-      <figure class="shot" onclick="lb(this)"><img src="screens/trace-scanner.png" alt="Trace Scanner" loading="lazy"><figcaption class="cap"><b>Trace Scanner</b><span>Type any name — DTF finds every leftover file, registry entry and log it left</span></figcaption></figure>
-      <figure class="shot" onclick="lb(this)"><img src="screens/license-gate.png" alt="License Activation" loading="lazy"><figcaption class="cap"><b>License Activation</b><span>Key-gated access with HWID lock — one licence, one PC, plus instant key requests in-app</span></figcaption></figure>
+      <figure class="shot rv" onclick="lb(this)"><img src="screens/main-panel.png" alt="Main Panel" loading="lazy"><figcaption class="cap"><b>Main Panel</b><span>20 system cleaners — temp, prefetch, event logs, browser history and more</span></figcaption></figure>
+      <figure class="shot rv" onclick="lb(this)"><img src="screens/network-browser.png" alt="Network &amp; Browser" loading="lazy"><figcaption class="cap"><b>Network &amp; Browser</b><span>Wipe DNS caches, histories and connection traces — one click each</span></figcaption></figure>
+      <figure class="shot rv" onclick="lb(this)"><img src="screens/memory-tools.png" alt="Memory Tools" loading="lazy"><figcaption class="cap"><b>Memory Tools</b><span>Clean strings straight out of process memory — svchost, explorer, lsass</span></figcaption></figure>
+      <figure class="shot rv" onclick="lb(this)"><img src="screens/advanced.png" alt="Advanced" loading="lazy"><figcaption class="cap"><b>Advanced</b><span>Deep cleanup for power users — timeline, GUIDs, USB traces, ETL logs</span></figcaption></figure>
+      <figure class="shot rv" onclick="lb(this)"><img src="screens/trace-scanner.png" alt="Trace Scanner" loading="lazy"><figcaption class="cap"><b>Trace Scanner</b><span>Type any name — DTF finds every leftover file, registry entry and log it left</span></figcaption></figure>
+      <figure class="shot rv" onclick="lb(this)"><img src="screens/license-gate.png" alt="License Activation" loading="lazy"><figcaption class="cap"><b>License Activation</b><span>Key-gated access with HWID lock — one licence, one PC, plus instant key requests in-app</span></figcaption></figure>
     </div>
   </div>
 </section>
 
-<section id="how">
+<!-- ============ HOW IT WORKS ============ -->
+<section id="get">
   <div class="wrap">
-    <div class="center">
-      <div class="kicker">How to get DTF</div>
-      <h2>Three steps. That's it.</h2>
-    </div>
+    <div class="rv center"><div class="kicker">How to get DTF</div>
+    <h2>Three steps. That's it.</h2></div>
     <div class="steps">
-      <div class="step"><h3>1. Click “One-click launcher”</h3><p>Downloads <b>dtf.bat</b>. Double-click it → UAC “Yes” → DTF opens. No typing at all.</p></div>
-      <div class="step"><h3>2. Open a ticket in Discord</h3><p>Click <b>GET KEY</b> inside DTF, type your name, then open a ticket. Approve and receive your key.</p></div>
-      <div class="step"><h3>3. Activate &amp; clean</h3><p>Paste your key in DTF, activate, and start cleaning. Closing DTF wipes everything — rerun the .bat next time.</p></div>
+      <div class="step rv"><h3>Click "Get DTF"</h3><p>Downloads <b>dtf.bat</b>. Double-click it → UAC "Yes" → DTF opens. No typing at all.</p></div>
+      <div class="step rv"><h3>Open a ticket in Discord</h3><p>Click <b>GET KEY</b> inside DTF, type your name, then open a ticket. Approve and receive your key.</p></div>
+      <div class="step rv"><h3>Activate &amp; clean</h3><p>Paste your key in DTF, activate, and start cleaning. Closing DTF wipes everything — rerun the .bat next time.</p></div>
     </div>
   </div>
 </section>
 
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="rv center"><div class="kicker">FAQ</div>
+    <h2>Questions, answered.</h2></div>
+    <div class="faq">
+      <details class="qa rv"><summary>How do I run DTF?</summary><div class="a">Click <b>Get DTF</b> on this site — the <code>dtf.bat</code> launcher downloads once, and from then on you just double-click it. DTF opens, no commands needed. Prefer commands? Paste <code>irm https://dtf-license.onrender.com/get.ps1 | iex</code> in PowerShell (Admin) — same result.</div></details>
+      <details class="qa rv"><summary>Does DTF leave anything on my PC?</summary><div class="a">No. Closing DTF triggers a full self-clean — files, registry, prefetch, browser evidence, PowerShell history — then deletes itself, and a final verification scan confirms zero leftovers on screen.</div></details>
+      <details class="qa rv"><summary>How much does it cost?</summary><div class="a">Keys are time-based (day plans available) and sold in our Discord. Open a ticket, pick your plan, pay via GCash or PayPal, and your key lands in the ticket.</div></details>
+      <details class="qa rv"><summary>Is my license locked to one PC?</summary><div class="a">Yes — every key is bound to your hardware ID (HWID) on first activation. One key, one PC. Moving PCs? Open a ticket and we can reset it.</div></details>
+      <details class="qa rv"><summary>Will antivirus flag it?</summary><div class="a">DTF is a cleaner that deletes files and edits the registry — some AVs flag tools like that by default. The launcher adds a Defender exclusion for DTF's folder automatically, and our Discord support walks you through it if your AV asks.</div></details>
+      <details class="qa rv"><summary>What's coming next from DTF?</summary><div class="a"><b>DTF Opti</b> — a safe PC optimizer for mid-tier and high-spec rigs that underperform. Debloat, tune and push your FPS the safe way. Follow the Discord for the drop.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
 <section class="final">
   <div class="wrap">
     <h2>Ready to run clean?</h2>
-    <p>Keys, downloads and support are handled in our Discord. Join and open a ticket.</p>
+    <p>Grab the one-click launcher above, or join the Discord — keys, support and everything else happen there.</p>
     <a class="btn btn-discord" href="https://discord.gg/QrhNXFGh7e" target="_blank" rel="noopener"><i data-lucide="message-circle"></i> discord.gg/QrhNXFGh7e</a>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">© 2026 DTF — All rights reserved.</div>
+  <div class="wrap">© 2026 DTF — The most updated cleaner on the market.</div>
 </footer>
 
 <script>
   lucide.createIcons();
+
+  /* fade-up on scroll */
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
   function copyCmd(btn){
     var txt="irm https://dtf-license.onrender.com/get.ps1 | iex";
     (navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject()).then(function(){
