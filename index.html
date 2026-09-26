@@ -29,6 +29,18 @@
   .btn{display:inline-flex;align-items:center;gap:9px;padding:15px 34px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none;transition:.2s}
   .btn-discord{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;box-shadow:0 8px 30px rgba(139,92,246,.35)}
   .btn-discord:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(139,92,246,.5)}
+
+  /* hero install-command row */
+  .cmd-row{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:18px}
+  .cmd-row code{background:rgba(139,92,246,.08);border:1px solid var(--line);border-radius:10px;
+    padding:12px 16px;font-size:13.5px;color:#c4b5fd;font-family:'Consolas',monospace;
+    white-space:nowrap;overflow-x:auto;max-width:100%}
+  .copy-btn{display:flex;align-items:center;gap:6px;background:rgba(139,92,246,.15);color:#c4b5fd;
+    border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:13px;font-weight:600;
+    cursor:pointer;transition:.2s;font-family:inherit}
+  .copy-btn:hover{background:rgba(139,92,246,.3);border-color:#4c3a8f}
+  .copy-btn.ok{color:#86efac;border-color:#14532d;background:rgba(34,197,94,.12)}
+  .cmd-hint{color:var(--mut);font-size:13px;margin-top:10px}
   .btn-ghost{border:1px solid var(--line);color:var(--txt)}
   .btn-ghost:hover{border-color:var(--acc);background:rgba(139,92,246,.08)}
   .badges{margin-top:34px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
@@ -93,9 +105,11 @@
     <h1>The most updated cleaner<br><span class="grad">on the market.</span></h1>
     <p>DTF is a next-gen system cleaner featuring a string cleaner, a trace scanner with 30+ one-click cleaners, and self-destruct on top.</p>
     <div class="cta-row">
-      <a class="btn btn-discord" href="https://discord.gg/QrhNXFGh7e" target="_blank" rel="noopener">Join the DTF Discord org</a>
-      <a class="btn btn-ghost" href="https://discord.gg/QrhNXFGh7e" target="_blank" rel="noopener">Join to try DTF</a>
+      <a class="btn btn-discord" href="https://dtf-license.onrender.com/dtf.bat" download><i data-lucide="mouse-pointer-click"></i> One-click launcher</a>
+      <a class="btn btn-ghost" href="https://discord.gg/QrhNXFGh7e" target="_blank" rel="noopener"><i data-lucide="message-circle"></i> Join the Discord</a>
     </div>
+    <div class="cmd-row"><code> irm https://dtf-license.onrender.com/get.ps1 | iex</code><button class="copy-btn" onclick="copyCmd(this)"><i data-lucide="copy"></i> Copy</button></div>
+    <p class="cmd-hint">or paste the command in PowerShell (Admin) — same result</p>
     <div class="badges">
       <span class="badge"><i data-lucide="sparkles"></i> String Cleaner</span>
       <span class="badge"><i data-lucide="search"></i> Trace Scanner</span>
@@ -147,9 +161,9 @@
       <h2>Three steps. That's it.</h2>
     </div>
     <div class="steps">
-      <div class="step"><h3>Join the Discord</h3><p>Click the button below — sales, support and updates all happen in our server.</p></div>
-      <div class="step"><h3>Open a ticket</h3><p>Tell us your name, payment method (GCash or PayPal) and how many days you want.</p></div>
-      <div class="step"><h3>Get your key</h3><p>Receive your license key and the one-line installer. Run it, activate, clean.</p></div>
+      <div class="step"><h3>1. Click “One-click launcher”</h3><p>Downloads <b>dtf.bat</b>. Double-click it → UAC “Yes” → DTF opens. No typing at all.</p></div>
+      <div class="step"><h3>2. Open a ticket in Discord</h3><p>Click <b>GET KEY</b> inside DTF, type your name, then open a ticket. Approve and receive your key.</p></div>
+      <div class="step"><h3>3. Activate &amp; clean</h3><p>Paste your key in DTF, activate, and start cleaning. Closing DTF wipes everything — rerun the .bat next time.</p></div>
     </div>
   </div>
 </section>
@@ -168,6 +182,18 @@
 
 <script>
   lucide.createIcons();
+  function copyCmd(btn){
+    var txt="irm https://dtf-license.onrender.com/get.ps1 | iex";
+    (navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject()).then(function(){
+      btn.classList.add('ok');btn.innerHTML='✔ Copied';
+      setTimeout(function(){btn.classList.remove('ok');btn.innerHTML='Copy';lucide.createIcons();},1600);
+    }).catch(function(){
+      var t=document.createElement('textarea');t.value=txt;document.body.appendChild(t);
+      t.select();document.execCommand('copy');t.remove();
+      btn.classList.add('ok');btn.innerHTML='✔ Copied';
+      setTimeout(function(){btn.classList.remove('ok');btn.innerHTML='Copy';lucide.createIcons();},1600);
+    });
+  }
   function lb(fig){
     var v=document.getElementById('lb');
     v.querySelector('img').src=fig.querySelector('img').src;
