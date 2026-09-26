@@ -14,7 +14,25 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--txt);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6}
+  body>*:not(.bgfx){position:relative;z-index:1}
   .wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+
+  /* ============ FULL-PAGE AURORA + STARFIELD ============ */
+  .bgfx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+  .bgfx .orb{position:absolute;border-radius:50%;filter:blur(110px);opacity:.42;
+    animation:drift 18s ease-in-out infinite alternate}
+  .orb.g1{width:640px;height:640px;background:#7c3aed;top:-220px;left:-160px}
+  .orb.g2{width:560px;height:560px;background:#4c1d95;top:14%;right:-180px;animation-delay:-5s;animation-duration:22s}
+  .orb.g3{width:500px;height:500px;background:#6d28d9;bottom:-200px;left:-120px;animation-delay:-9s;animation-duration:26s}
+  .orb.g4{width:420px;height:420px;background:#a855f7;top:44%;left:34%;opacity:.24;animation-delay:-13s;animation-duration:20s}
+  .orb.g5{width:460px;height:460px;background:#5b21b6;bottom:-140px;right:-100px;animation-delay:-3s;animation-duration:24s}
+  .bgfx .star{position:absolute;border-radius:50%;background:#c4b5fd;animation:tw 3.4s ease-in-out infinite}
+  @keyframes tw{0%,100%{opacity:.08;transform:scale(.7)}50%{opacity:.85;transform:scale(1.15)}}
+  @keyframes drift{
+    0%{transform:translate(0,0) scale(1)}
+    50%{transform:translate(70px,-50px) scale(1.14)}
+    100%{transform:translate(-50px,60px) scale(.92)}
+  }
 
   .nav{position:sticky;top:0;z-index:50;background:rgba(11,8,23,.82);backdrop-filter:blur(14px);
     border-bottom:1px solid var(--line)}
@@ -36,19 +54,7 @@
   .nav-acc:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(139,92,246,.5)}
   @media(max-width:700px){.crumb{display:none}}
 
-  .hero{position:relative;overflow:hidden;padding:110px 0 96px;text-align:left}
-  .aurora{position:absolute;inset:0;z-index:0;pointer-events:none}
-  .aurora .orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;
-    animation:drift 16s ease-in-out infinite alternate}
-  .orb.o1{width:560px;height:560px;background:#7c3aed;top:-180px;left:-120px}
-  .orb.o2{width:460px;height:460px;background:#4c1d95;bottom:-160px;right:-80px;animation-delay:-6s}
-  .orb.o3{width:340px;height:340px;background:#a855f7;top:30%;right:22%;opacity:.28;animation-delay:-11s}
-  @keyframes drift{
-    0%{transform:translate(0,0) scale(1)}
-    50%{transform:translate(60px,-40px) scale(1.12)}
-    100%{transform:translate(-40px,50px) scale(.94)}
-  }
-  .hero .wrap{position:relative;z-index:1}
+  .hero{position:relative;overflow:hidden;padding:150px 0 120px;text-align:left}
   .hero-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(23,17,48,.85);
     border:1px solid var(--line);border-radius:999px;padding:9px 20px 9px 10px;margin-bottom:26px;
     font-size:13.5px;letter-spacing:2.5px;font-weight:700;color:#c4b5fd}
@@ -126,6 +132,13 @@
 </head>
 <body>
 
+<!-- full-page animated aurora + starfield -->
+<div class="bgfx">
+  <div class="orb g1"></div><div class="orb g2"></div><div class="orb g3"></div>
+  <div class="orb g4"></div><div class="orb g5"></div>
+  <div id="stars"></div>
+</div>
+
 <nav class="nav">
   <div class="wrap nav-in">
     <a class="brand" href="index.html"><span class="dot">D</span> DTF</a>
@@ -137,9 +150,6 @@
 </nav>
 
 <header class="hero" id="top">
-  <div class="aurora">
-    <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
-  </div>
   <div class="wrap">
     <h1>The most updated cleaner<br><span class="grad">on the market.</span></h1>
     <p class="lead">A string cleaner, a trace scanner with 30+ one-click cleaners, memory tools and a full self-destruct. One click to run. Zero traces left — verified on screen.</p>
@@ -217,6 +227,20 @@
 
 <script>
   lucide.createIcons();
+
+  /* starfield: 55 twinkling stars, random spread */
+  (function(){
+    var s=document.getElementById('stars');
+    for(var i=0;i<55;i++){
+      var d=document.createElement('div');d.className='star';
+      var sz=(Math.random()*2.4+1).toFixed(1);
+      d.style.cssText='left:'+(Math.random()*100).toFixed(2)+'%;top:'+(Math.random()*100).toFixed(2)+
+        '%;width:'+sz+'px;height:'+sz+'px;animation-delay:-'+(Math.random()*3.4).toFixed(2)+'s;'+
+        'animation-duration:'+(2.4+Math.random()*2.6).toFixed(2)+'s';
+      s.appendChild(d);
+    }
+  })();
+
   var io=new IntersectionObserver(function(es){
     es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
   },{threshold:.12});
