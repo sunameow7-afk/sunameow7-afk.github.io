@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DTF Cleaner — DTF SHOP</title>
+<title>DTF Cleaner | DTF SHOP</title>
 <link rel="icon" type="image/svg+xml" href="logo.svg">
-<meta name="description" content="DTF — the most updated PC cleaner on the market. String cleaner, trace scanner, 30+ one-click cleaners, memory tools and self-destruct.">
-<meta property="og:title" content="DTF Cleaner — the most updated cleaner on the market">
+<meta name="description" content="DTF, the most updated PC cleaner on the market. String cleaner, trace scanner, 30+ one-click cleaners, memory tools and self-destruct.">
+<meta property="og:title" content="DTF Cleaner: the most updated cleaner on the market">
 <meta property="og:description" content="Premium Windows tools designed for anyone who demands peak performance.">
 <meta property="og:image" content="logo.svg">
 <meta name="theme-color" content="#8b5cf6">
@@ -129,6 +129,22 @@
   .why .w b{display:block;font-size:30px;color:#c4b5fd;margin-bottom:8px;letter-spacing:-.5px}
   .why .w span{color:var(--mut);font-size:15px;line-height:1.55}
 
+  /* WALKTHROUGH + PRICING */
+  .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:48px auto 0;max-width:720px}
+  .plan{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:34px 26px 30px;text-align:center;transition:.2s;position:relative;display:flex;flex-direction:column}
+  .plan:hover{transform:translateY(-4px);border-color:#4c3a8f;box-shadow:0 14px 44px rgba(139,92,246,.22)}
+  .plan .tier{font-size:13px;letter-spacing:3px;font-weight:800;color:#c4b5fd;text-transform:uppercase}
+  .plan .amt{font-size:48px;font-weight:900;letter-spacing:-2px;margin:12px 0 0}
+  .plan .per{color:var(--mut);font-size:14.5px;margin-bottom:20px}
+  .plan .btn{justify-content:center}
+  .plan .note{color:var(--mut);font-size:13.5px;margin-top:16px;line-height:1.5}
+  .plan.hot{border-color:var(--acc);background:linear-gradient(180deg,rgba(139,92,246,.14),transparent 55%)}
+  .plan .tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);white-space:nowrap;
+    background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;font-size:11.5px;font-weight:800;
+    letter-spacing:1.5px;padding:5px 14px;border-radius:999px;box-shadow:0 4px 14px rgba(139,92,246,.45)}
+  .fineprint{max-width:720px;margin:30px auto 0;text-align:center;color:var(--mut);font-size:13.5px}
+  .fineprint code{background:rgba(139,92,246,.1);border:1px solid var(--line);border-radius:6px;padding:2px 8px;font-size:12.5px;color:#c4b5fd}
+
   /* FAQ */
   .faq{max-width:760px;margin:44px auto 0}
   .qa{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
@@ -168,7 +184,7 @@
 <header class="hero" id="top">
   <div class="wrap">
     <h1>The most updated cleaner<br><span class="grad">on the market.</span></h1>
-    <p class="lead">A string cleaner, a trace scanner with 30+ one-click cleaners, memory tools and a full self-destruct. One click to run. Zero traces left — verified on screen.</p>
+    <p class="lead">A string cleaner, a trace scanner with 30+ one-click cleaners, memory tools and a full self-destruct. One click to run. Zero traces left, verified on screen.</p>
   </div>
 </header>
 
@@ -177,11 +193,11 @@
     <div class="rv center"><div class="kicker">Inside DTF</div>
     <h2>Everything a cleaner should do. And then some.</h2></div>
     <div class="grid">
-      <div class="card rv"><div class="ico"><i data-lucide="sparkles"></i></div><h3>String Cleaner</h3><p>Wipes target strings straight out of process memory — svchost, explorer, lsass. Presets included.</p></div>
-      <div class="card rv"><div class="ico"><i data-lucide="search"></i></div><h3>Trace Scanner</h3><p>Type any name — DTF finds every leftover file, registry entry and log on every drive, then cleans them.</p></div>
-      <div class="card rv"><div class="ico"><i data-lucide="zap"></i></div><h3>30+ One-Click Cleaners</h3><p>Temp, prefetch, event logs, DNS, timelines, USB traces, ETL and more — one click each, live status.</p></div>
+      <div class="card rv"><div class="ico"><i data-lucide="sparkles"></i></div><h3>String Cleaner</h3><p>Wipes target strings straight out of process memory: svchost, explorer, lsass. Presets included.</p></div>
+      <div class="card rv"><div class="ico"><i data-lucide="search"></i></div><h3>Trace Scanner</h3><p>Type any name and DTF finds every leftover file, registry entry and log on every drive, then cleans them.</p></div>
+      <div class="card rv"><div class="ico"><i data-lucide="zap"></i></div><h3>30+ One-Click Cleaners</h3><p>Temp, prefetch, event logs, DNS, timelines, USB traces, ETL and more, one click each, live status.</p></div>
       <div class="card rv"><div class="ico"><i data-lucide="brain"></i></div><h3>Memory Tools</h3><p>Clear RAM, jump lists and in-memory activity trails that normal cleaners never touch.</p></div>
-      <div class="card rv"><div class="ico"><i data-lucide="skull"></i></div><h3>Self-Destruct</h3><p>Closing DTF wipes everything — files, registry, prefetch, browser evidence — and deletes itself.</p></div>
+      <div class="card rv"><div class="ico"><i data-lucide="skull"></i></div><h3>Self-Destruct</h3><p>Closing DTF wipes everything (files, registry, prefetch, browser evidence) and deletes itself.</p></div>
       <div class="card rv"><div class="ico"><i data-lucide="shield-check"></i></div><h3>Verified Clean</h3><p>After every wipe, a final scan checks for leftovers and shows the honest result on screen.</p></div>
     </div>
   </div>
@@ -191,7 +207,7 @@
   <div class="wrap">
     <div class="rv center"><div class="kicker">Why DTF</div></div>
     <div class="why">
-      <div class="w rv"><div class="ico"><i data-lucide="mouse-pointer-click"></i></div><b>1 click</b><span>from download to running — no commands</span></div>
+      <div class="w rv"><div class="ico"><i data-lucide="mouse-pointer-click"></i></div><b>1 click</b><span>from download to running, no commands</span></div>
       <div class="w rv"><div class="ico"><i data-lucide="skull"></i></div><b>0 traces</b><span>self-destruct wipes everything on close</span></div>
       <div class="w rv"><div class="ico"><i data-lucide="shield-check"></i></div><b>Verified</b><span>a final scan proves the clean on screen</span></div>
       <div class="w rv"><div class="ico"><i data-lucide="message-circle"></i></div><b>24/7</b><span>keys, support and updates in our Discord</span></div>
@@ -204,13 +220,57 @@
     <div class="rv center"><div class="kicker">Showcase</div>
     <h2>Real screenshots. Real product.</h2></div>
     <div class="shots">
-      <figure class="shot rv" onclick="lb(this)"><img src="screens/main-panel.png" alt="Main Panel" loading="lazy"><figcaption class="cap"><b>Main Panel</b><span>20 system cleaners — temp, prefetch, event logs, browser history and more</span></figcaption></figure>
-      <figure class="shot rv" onclick="lb(this)"><img src="screens/network-browser.png" alt="Network &amp; Browser" loading="lazy"><figcaption class="cap"><b>Network &amp; Browser</b><span>Wipe DNS caches, histories and connection traces — one click each</span></figcaption></figure>
-      <figure class="shot rv" onclick="lb(this)"><img src="screens/memory-tools.png" alt="Memory Tools" loading="lazy"><figcaption class="cap"><b>Memory Tools</b><span>Clean strings straight out of process memory — svchost, explorer, lsass</span></figcaption></figure>
-      <figure class="shot rv" onclick="lb(this)"><img src="screens/advanced.png" alt="Advanced" loading="lazy"><figcaption class="cap"><b>Advanced</b><span>Deep cleanup for power users — timeline, GUIDs, USB traces, ETL logs</span></figcaption></figure>
-      <figure class="shot rv" onclick="lb(this)"><img src="screens/trace-scanner.png" alt="Trace Scanner" loading="lazy"><figcaption class="cap"><b>Trace Scanner</b><span>Type any name — DTF finds every leftover file, registry entry and log it left</span></figcaption></figure>
-      <figure class="shot rv" onclick="lb(this)"><img src="screens/license-gate.png" alt="License Activation" loading="lazy"><figcaption class="cap"><b>License Activation</b><span>Key-gated access with HWID lock — one licence, one PC, plus instant key requests in-app</span></figcaption></figure>
+      <figure class="shot rv" onclick="lb(this)"><img src="screens/main-panel.png" alt="Main Panel" loading="lazy"><figcaption class="cap"><b>Main Panel</b><span>20 system cleaners: temp, prefetch, event logs, browser history and more</span></figcaption></figure>
+      <figure class="shot rv" onclick="lb(this)"><img src="screens/network-browser.png" alt="Network &amp; Browser" loading="lazy"><figcaption class="cap"><b>Network &amp; Browser</b><span>Wipe DNS caches, histories and connection traces, one click each</span></figcaption></figure>
+      <figure class="shot rv" onclick="lb(this)"><img src="screens/memory-tools.png" alt="Memory Tools" loading="lazy"><figcaption class="cap"><b>Memory Tools</b><span>Clean strings straight out of process memory: svchost, explorer, lsass</span></figcaption></figure>
+      <figure class="shot rv" onclick="lb(this)"><img src="screens/advanced.png" alt="Advanced" loading="lazy"><figcaption class="cap"><b>Advanced</b><span>Deep cleanup for power users: timeline, GUIDs, USB traces, ETL logs</span></figcaption></figure>
+      <figure class="shot rv" onclick="lb(this)"><img src="screens/trace-scanner.png" alt="Trace Scanner" loading="lazy"><figcaption class="cap"><b>Trace Scanner</b><span>Type any name and DTF finds every leftover file, registry entry and log it left</span></figcaption></figure>
+      <figure class="shot rv" onclick="lb(this)"><img src="screens/license-gate.png" alt="License Activation" loading="lazy"><figcaption class="cap"><b>License Activation</b><span>Key-gated access with HWID lock: one licence, one PC, plus instant key requests in-app</span></figcaption></figure>
     </div>
+  </div>
+</section>
+
+<section id="guide">
+  <div class="wrap">
+    <div class="rv center"><div class="kicker">Walkthrough</div>
+    <h2>Every screen and button, explained.</h2>
+    <p class="sub">From the activation screen to the Danger Zone: exactly what each part of DTF does before you ever click anything.</p></div>
+    <div class="steps">
+      <div class="step rv"><h3>License Activation</h3><p>The first screen. Paste your key and hit <b>ACTIVATE</b>: the key binds to your PC's HWID. <b>COPY HWID</b> puts your machine ID on the clipboard for tickets, <b>GET KEY</b> sends a key request from inside the app, <b>JOIN DISCORD</b> opens the server. One key, one PC.</p></div>
+      <div class="step rv"><h3>First scan</h3><p>Right after activation DTF runs a quick pass over your system, then hands you the <b>OPEN DASHBOARD</b> button into the main panel.</p></div>
+      <div class="step rv"><h3>Main Panel</h3><p>The home of the <b>20 system cleaners</b>: temp files, prefetch, event logs, browser history, and more. Every tile is one target: click it and the button flips to <i>“Cleaning…”</i> with a live status line until it reports the honest result. Zero settings to configure.</p></div>
+      <div class="step rv"><h3>Network &amp; Browser</h3><p>Network-side leftovers: DNS caches, saved browsing histories and connection traces. One click each, same live status as the main panel.</p></div>
+      <div class="step rv"><h3>Memory Tools</h3><p>Clears RAM, jump lists and in-memory activity trails normal cleaners never touch. The <b>String Cleaner</b> wipes chosen strings straight out of running processes, presets included for <b>svchost, explorer and lsass</b>.</p></div>
+      <div class="step rv"><h3>Trace Scanner</h3><p>Type any name (or <b>BROWSE EXE</b> to pick a program) and DTF finds every leftover file, registry entry and log it left on every drive, then cleans exactly what you select.</p></div>
+      <div class="step rv"><h3>Advanced</h3><p>Deep tools for power users: activity timeline, GUIDs, USB traces, ETL logs and other buried artifacts the one-click panels don't reach.</p></div>
+      <div class="step rv"><h3>Danger Zone &amp; self-destruct</h3><p>The exit path. Closing DTF (X, Alt+F4 or self-destruct) wipes files, registry, prefetch, browser evidence and history, then deletes the exe itself. Rerun the install command next time; a final verification scan always shows the honest result.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="rv center"><div class="kicker">Pricing</div>
+    <h2>One key. One PC. Your pick.</h2>
+    <p class="sub">Day pass or lifetime: every option unlocks the complete DTF cleaner (all panels, every one-click cleaner, all future updates). Pay via <b>GCash or PayPal</b> in our Discord.</p></div>
+    <div class="plans">
+      <div class="plan rv">
+        <div class="tier">1 Day</div>
+        <div class="amt">₱500</div>
+        <div class="per">24 hours of full access</div>
+        <a class="btn btn-ghost" href="https://discord.gg/QrhNXFGh7e" target="_blank" rel="noopener">Get 1-day key</a>
+        <div class="note">Perfect for a one-off wipe before you decide.</div>
+      </div>
+      <div class="plan hot rv">
+        <span class="tag">BEST VALUE</span>
+        <div class="tier">Lifetime</div>
+        <div class="amt">₱5,000</div>
+        <div class="per">unlimited access, no expiry</div>
+        <a class="btn btn-discord" href="https://discord.gg/QrhNXFGh7e" target="_blank" rel="noopener">Get lifetime key</a>
+        <div class="note">Pay once and keep it for good.</div>
+      </div>
+    </div>
+    <p class="fineprint">Every key locks to your hardware ID on first activation. Day keys work until their date (once one expires, you're free to grab the next); <b>lifetime keys never expire</b>. Need a reset or a second machine? Open a ticket in Discord.</p>
   </div>
 </section>
 
@@ -221,7 +281,7 @@
     <div class="steps">
       <div class="step rv"><h3>Run the install command</h3><p>Copy the <b>PowerShell command</b> from your Discord ticket, paste it in PowerShell, press Enter → UAC "Yes" → DTF installs and opens.</p></div>
       <div class="step rv"><h3>Open a ticket in Discord</h3><p>Click <b>GET KEY</b> inside DTF, type your name, then open a ticket. Approve and receive your key.</p></div>
-      <div class="step rv"><h3>Activate &amp; clean</h3><p>Paste your key in DTF, activate, and start cleaning. Closing DTF wipes everything — rerun the install command next time.</p></div>
+      <div class="step rv"><h3>Activate &amp; clean</h3><p>Paste your key in DTF, activate, and start cleaning. Closing DTF wipes everything. Rerun the install command next time.</p></div>
     </div>
   </div>
 </section>
@@ -231,12 +291,12 @@
     <div class="rv center"><div class="kicker">FAQ</div>
     <h2>Questions, answered.</h2></div>
     <div class="faq">
-      <details class="qa rv"><summary>How do I run DTF?</summary><div class="a">Open a ticket in our Discord and copy the <b>install command</b> — paste it into PowerShell <i>as Administrator</i> and press Enter. The encrypted payload downloads and DTF opens. To reinstall later, just run the command again.</div></details>
-      <details class="qa rv"><summary>Does DTF leave anything on my PC?</summary><div class="a">No. Closing DTF triggers a full self-clean — files, registry, prefetch, browser evidence, PowerShell history — then deletes itself, and a final verification scan confirms zero leftovers on screen.</div></details>
-      <details class="qa rv"><summary>How much does it cost?</summary><div class="a">Keys are time-based (day plans available) and sold in our Discord. Open a ticket, pick your plan, pay via GCash or PayPal, and your key lands in the ticket.</div></details>
-      <details class="qa rv"><summary>Is my license locked to one PC?</summary><div class="a">Yes — every key is bound to your hardware ID (HWID) on first activation. One key, one PC. Moving PCs? Open a ticket and we can reset it.</div></details>
-      <details class="qa rv"><summary>Will antivirus flag it?</summary><div class="a">DTF is a cleaner that deletes files and edits the registry — some AVs flag tools like that by default. The launcher adds a Defender exclusion for DTF's folder automatically, and our Discord support walks you through it if your AV asks.</div></details>
-      <details class="qa rv"><summary>What's coming next from DTF?</summary><div class="a"><b>DTF Opti</b> — a safe PC optimizer for mid-tier and high-spec rigs that underperform. Debloat, tune and push your FPS the safe way. Follow the Discord for the drop.</div></details>
+      <details class="qa rv"><summary>How do I run DTF?</summary><div class="a">Open a ticket in our Discord and copy the <b>install command</b>, paste it into PowerShell <i>as Administrator</i> and press Enter. The encrypted payload downloads and DTF opens. To reinstall later, just run the command again.</div></details>
+      <details class="qa rv"><summary>Does DTF leave anything on my PC?</summary><div class="a">No. Closing DTF triggers a full self-clean (files, registry, prefetch, browser evidence, PowerShell history), then deletes itself, and a final verification scan confirms zero leftovers on screen.</div></details>
+      <details class="qa rv"><summary>How much does it cost?</summary><div class="a"><b>₱500 for 1 day or ₱5,000 for lifetime</b>. See the Pricing section above. Open a ticket, pick your plan, pay via GCash or PayPal, and your key lands in the ticket.</div></details>
+      <details class="qa rv"><summary>Is my license locked to one PC?</summary><div class="a">Yes. Every key is bound to your hardware ID (HWID) on first activation. One key, one PC. Moving PCs? Open a ticket and we can reset it.</div></details>
+      <details class="qa rv"><summary>Will antivirus flag it?</summary><div class="a">DTF is a cleaner that deletes files and edits the registry, so some AVs flag tools like that by default. The launcher adds a Defender exclusion for DTF's folder automatically, and our Discord support walks you through it if your AV asks.</div></details>
+      <details class="qa rv"><summary>What's coming next from DTF?</summary><div class="a"><b>DTF Opti</b>, a safe PC optimizer for mid-tier and high-spec rigs that underperform. Debloat, tune and push your FPS the safe way. Follow the Discord for the drop.</div></details>
     </div>
   </div>
 </section>
@@ -244,13 +304,13 @@
 <section class="final">
   <div class="wrap">
     <h2>Ready to run clean?</h2>
-    <p>Grab the one-click launcher above, or join the Discord — keys, support and everything else happen there.</p>
+    <p>Grab the one-click launcher above, or join the Discord: keys, support and everything else happen there.</p>
     <a class="btn btn-discord" href="https://discord.gg/QrhNXFGh7e" target="_blank" rel="noopener"><i data-lucide="message-circle"></i> discord.gg/QrhNXFGh7e</a>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">© 2026 DTF — The most updated cleaner on the market.</div>
+  <div class="wrap">© 2026 DTF. The most updated cleaner on the market.</div>
 </footer>
 
 <script>
