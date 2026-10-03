@@ -135,6 +135,7 @@
   .plan:hover{transform:translateY(-4px);border-color:#4c3a8f;box-shadow:0 14px 44px rgba(139,92,246,.22)}
   .plan .tier{font-size:13px;letter-spacing:3px;font-weight:800;color:#c4b5fd;text-transform:uppercase}
   .plan .amt{font-size:48px;font-weight:900;letter-spacing:-2px;margin:12px 0 0}
+  .plan .amt .usd{font-size:21px;font-weight:800;letter-spacing:-.5px;color:var(--mut);margin-left:8px}
   .plan .per{color:var(--mut);font-size:14.5px;margin-bottom:20px}
   .plan .btn{justify-content:center}
   .plan .note{color:var(--mut);font-size:13.5px;margin-top:16px;line-height:1.5}
@@ -256,7 +257,7 @@
     <div class="plans">
       <div class="plan rv">
         <div class="tier">1 Day</div>
-        <div class="amt">₱500</div>
+        <div class="amt">₱500 <span class="usd">$8</span></div>
         <div class="per">24 hours of full access</div>
         <a class="btn btn-ghost" href="https://discord.gg/QrhNXFGh7e" target="_blank" rel="noopener">Get 1-day key</a>
         <div class="note">Perfect for a one-off wipe before you decide.</div>
@@ -264,7 +265,7 @@
       <div class="plan hot rv">
         <span class="tag">BEST VALUE</span>
         <div class="tier">Lifetime</div>
-        <div class="amt">₱5,000</div>
+        <div class="amt">₱5,000 <span class="usd">$80</span></div>
         <div class="per">unlimited access, no expiry</div>
         <a class="btn btn-discord" href="https://discord.gg/QrhNXFGh7e" target="_blank" rel="noopener">Get lifetime key</a>
         <div class="note">Pay once and keep it for good.</div>
@@ -293,7 +294,7 @@
     <div class="faq">
       <details class="qa rv"><summary>How do I run DTF?</summary><div class="a">Open a ticket in our Discord and copy the <b>install command</b>, paste it into PowerShell <i>as Administrator</i> and press Enter. The encrypted payload downloads and DTF opens. To reinstall later, just run the command again.</div></details>
       <details class="qa rv"><summary>Does DTF leave anything on my PC?</summary><div class="a">No. Closing DTF triggers a full self-clean (files, registry, prefetch, browser evidence, PowerShell history), then deletes itself, and a final verification scan confirms zero leftovers on screen.</div></details>
-      <details class="qa rv"><summary>How much does it cost?</summary><div class="a"><b>₱500 for 1 day or ₱5,000 for lifetime</b>. See the Pricing section above. Open a ticket, pick your plan, pay via GCash or PayPal, and your key lands in the ticket.</div></details>
+      <details class="qa rv"><summary>How much does it cost?</summary><div class="a"><b>₱500 ($8) for 1 day or ₱5,000 ($80) for lifetime</b>. See the Pricing section above. Open a ticket, pick your plan, pay via GCash or PayPal, and your key lands in the ticket.</div></details>
       <details class="qa rv"><summary>Is my license locked to one PC?</summary><div class="a">Yes. Every key is bound to your hardware ID (HWID) on first activation. One key, one PC. Moving PCs? Open a ticket and we can reset it.</div></details>
       <details class="qa rv"><summary>Will antivirus flag it?</summary><div class="a">DTF is a cleaner that deletes files and edits the registry, so some AVs flag tools like that by default. The launcher adds a Defender exclusion for DTF's folder automatically, and our Discord support walks you through it if your AV asks.</div></details>
       <details class="qa rv"><summary>What's coming next from DTF?</summary><div class="a"><b>DTF Opti</b>, a safe PC optimizer for mid-tier and high-spec rigs that underperform. Debloat, tune and push your FPS the safe way. Follow the Discord for the drop.</div></details>
