@@ -30,9 +30,17 @@ lucide.createIcons();
     var el = document.getElementById(hash.slice(1));
     if (!el) return;
     var y = el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
-    window.scrollTo({ top: y < 0 ? 0 : y, behavior: 'auto' });
+    if (y < 0) y = 0;
+    // scroll-behavior:smooth (set in CSS) also governs behavior:'auto', and a smooth
+    // scroll can be skipped entirely - force one instant jump instead.
+    var root = document.documentElement;
+    var prev = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+    window.scrollTo(0, y);
+    root.style.scrollBehavior = prev;
   }
-  window.addEventListener('load', reanchor);
+  if (document.readyState === 'complete') reanchor();
+  else window.addEventListener('load', reanchor);
   window.addEventListener('hashchange', reanchor);
 })();
 
