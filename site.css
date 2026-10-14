@@ -1,4 +1,4 @@
-/* ================================================================
+﻿/* ================================================================
    DTF — site.css
    Shared design system for index.html + dtf.html
    Black base, purple accent, Geist / Geist Mono, napse-style layout.
@@ -192,10 +192,14 @@ section[id],header[id]{scroll-margin-top:96px} /* keep the floating nav from cov
 .mock-meter{height:4px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden;margin-top:8px;width:100%}
 .mock-meter i{display:block;height:100%;width:46%;border-radius:999px;
   background:linear-gradient(90deg,var(--acc2),var(--acc));box-shadow:0 0 14px rgba(168,85,247,.7)}
-.mock-pill{position:absolute;top:-14px;right:16px;display:inline-flex;align-items:center;gap:8px;
-  padding:8px 14px;border-radius:999px;background:rgba(10,10,16,.94);border:1px solid var(--line2);
+/* the live pill sits INSIDE the window bar, pushed right by margin-left:auto.
+   It used to be absolute at top:-14px, i.e. outside the frame - and the mock's
+   overflow:hidden clipped it, so the frame border ran straight through the
+   badge. In the bar it can neither clip nor collide at any width. */
+.mock-pill{display:inline-flex;align-items:center;gap:8px;margin-left:auto;
+  padding:7px 13px;border-radius:999px;background:rgba(10,10,16,.94);border:1px solid var(--line2);
   font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#d8b4fe;
-  box-shadow:0 10px 30px rgba(0,0,0,.6)}
+  white-space:nowrap}
 .mock-pill .dot{width:6px;height:6px;border-radius:50%;background:var(--acc);box-shadow:0 0 10px var(--acc)}
 
 /* ============ PRODUCTS ============ */
@@ -353,5 +357,4 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;text-align:center;po
   .qa .a{padding-left:22px}
   .tagline::before,.tagline::after{width:26px}
   .f-bot{line-height:1.8}
-  .mock-pill{right:10px}
 }
