@@ -394,14 +394,17 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;text-align:center;po
   .plan{padding:30px 22px 26px}
   .plans{gap:16px}
 
-  /* these separator dots ended up orphaned on their own line once the row wrapped */
-  .meta{gap:4px 12px;font-size:10.5px}
+  /* Stacked instead of wrapped. With the separator dots hidden a wrapped row ran
+     unrelated facts together as one phrase ("WINDOWS 10 / 11 64-BIT"), and keeping
+     the dots only moved the problem - one ended up alone at the start of a line. */
+  .meta{flex-direction:column;align-items:flex-start;gap:5px;font-size:10.5px}
   .meta i{display:none}
 
-  /* thumbs: 42px targets were under the 44px minimum for the nav and footer links */
+  /* thumbs: these were the only targets still under the 44px minimum - the brand
+     link sat at 42px and the hero badge at 40px */
   .burger{width:44px;height:44px}
-  .brand{padding:4px 0}
-  .badge{padding:10px 16px}
+  .brand{padding:6px 0}
+  a.badge{padding:13px 18px}
   .f-links a{padding:11px 15px;font-size:13px;min-height:44px}
   .btn{padding:14px 22px;font-size:15px}
 
