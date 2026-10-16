@@ -96,7 +96,9 @@ else dtfIcons();
     fig.addEventListener('click', function () {
       var img = fig.tagName === 'IMG' ? fig : fig.querySelector('img');
       if (!img) return;
-      lb.querySelector('img').src = img.getAttribute('src');
+      // currentSrc, not the attribute: after the fallback below the attribute still
+      // holds the URL that failed and the lightbox would open a broken image.
+      lb.querySelector('img').src = img.currentSrc || img.src;
       lb.style.display = 'flex';
     });
   });
@@ -104,6 +106,38 @@ else dtfIcons();
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') lb.style.display = 'none';
   });
+})();
+
+/* ---------- a screenshot must never render as a broken image ----------
+   The hero mock and the showcase figure point at the SAME url (screens/trace-scanner.png),
+   so one failed fetch left Chrome's broken-image icon and raw alt text in two places at
+   once - which is exactly how it looked on a client's screen. Now every screenshot retries
+   once with a fresh cache-buster (a cached failure is the usual cause) and, if it still
+   cannot load, swaps in a matching dark panel so the frame keeps its shape and the page
+   still looks deliberate. Bound in the capture phase because error events do not bubble,
+   which also covers images added after load. */
+(function () {
+  var PANEL = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" width="980" height="715" viewBox="0 0 980 715">' +
+    '<rect width="980" height="715" fill="#08080c"/>' +
+    '<text x="490" y="362" fill="#5c5c68" font-family="ui-monospace,monospace" font-size="16" ' +
+    'letter-spacing="4" text-anchor="middle">SCREENSHOT UNAVAILABLE</text></svg>');
+
+  document.addEventListener('error', function (e) {
+    var img = e.target;
+    if (!img || img.tagName !== 'IMG' || img.dataset.dtfFallback) return;
+    var src = img.getAttribute('src') || '';
+    if (src.indexOf('screens/') === -1) return;          // only our own screenshots
+    if (!img.dataset.dtfRetried) {
+      img.dataset.dtfRetried = '1';
+      img.src = src + (src.indexOf('?') === -1 ? '?' : '&') + 'r=' + Date.now();
+      return;                                            // one retry, fresh URL
+    }
+    img.dataset.dtfFallback = '1';
+    img.src = PANEL;
+    var frame = img.closest('.mock, .shot');
+    if (frame) frame.classList.add('img-fail');
+  }, true);
 })();
 
 /* ---------- anti-inspect deterrent: blocks F12 / Ctrl+Shift+I/J/C / Ctrl+U / Ctrl+S / right-click.
