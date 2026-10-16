@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- Every asset and link below is relative. The catch-all rewrite serves this page on
+     ANY path, so a nested one (/invite/xyz) would ask for /invite/site.css - which the
+     rewrite answers with this same HTML, leaving the page unstyled and scriptless.
+     A document-wide base of "/" pins relative URLs to the root at any depth. -->
+<base href="/">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DTF | Premium Windows Tools</title>
 <link rel="icon" type="image/svg+xml" href="logo.svg">
