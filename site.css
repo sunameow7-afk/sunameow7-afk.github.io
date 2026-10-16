@@ -358,3 +358,56 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;text-align:center;po
   .tagline::before,.tagline::after{width:26px}
   .f-bot{line-height:1.8}
 }
+
+/* ============ SMALL PHONES (<=420px) ============
+   The auto-fit grids below use minmax(280-320px,1fr). On a 320px-wide phone the wrap is
+   only ~267px, so each track was forced wider than its container and body{overflow-x:hidden}
+   silently clipped the right edge: product cards, the "Live"/"Coming soon" pills, the whole
+   screenshot showcase and its captions all lost their right side. Here they collapse to one
+   minmax(0,1fr) column, which cannot exceed the container. */
+@media(max-width:720px){
+  /* the hero glow is inset -10% on each side. On a phone that pushes the document ~21px
+     wider than the viewport, and body{overflow-x:hidden} does not stop iOS Safari from
+     letting the page pan sideways. Clamping the horizontal inset keeps it inside the page. */
+  .hero-art .glow{inset:-8% 0}
+}
+
+@media(max-width:420px){
+  .wrap{padding:0 16px}
+  .prods,.caps,.shots,.steps,.plans{grid-template-columns:minmax(0,1fr)}
+  .prods>*,.caps>*,.shots>*,.steps>*,.plans>*{min-width:0;max-width:100%}
+
+  /* the hero opened with ~120px of nothing above the first content on a phone */
+  .hero{padding:98px 0 52px}
+  .sec{padding:62px 0}
+  .sec.tight{padding:48px 0}
+  .wordmark{font-size:54px}
+  .h2{font-size:29px}
+  .hero .lead{font-size:16.5px}
+  .sub{font-size:15.5px}
+  .stats{margin-top:30px}
+  .stat{padding:16px}
+  .qa summary{padding:16px 18px;font-size:15px;gap:11px}
+  .qa .a{font-size:14px}
+  .prod{padding:28px 22px 24px}
+  .prod h3{font-size:20px}
+  .plan{padding:30px 22px 26px}
+  .plans{gap:16px}
+
+  /* these separator dots ended up orphaned on their own line once the row wrapped */
+  .meta{gap:4px 12px;font-size:10.5px}
+  .meta i{display:none}
+
+  /* thumbs: 42px targets were under the 44px minimum for the nav and footer links */
+  .burger{width:44px;height:44px}
+  .brand{padding:4px 0}
+  .badge{padding:10px 16px}
+  .f-links a{padding:11px 15px;font-size:13px;min-height:44px}
+  .btn{padding:14px 22px;font-size:15px}
+
+  /* mono micro-labels sat at 9.5-10px - unreadable on a phone */
+  .stat span,.tag,.mock-label,.mock-foot{font-size:10.5px}
+}
+
+/* tapping the hero panel opens it in the lightbox, where a phone can pinch-zoom */
+[data-zoom]{cursor:zoom-in}

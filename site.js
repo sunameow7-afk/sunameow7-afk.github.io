@@ -2,7 +2,18 @@
    DTF — site.js   (shared by index.html and dtf.html)
    icons, nav behaviour, starfield, scroll reveal, screenshot lightbox
    ================================================================ */
-lucide.createIcons();
+/* Icons are a nicety - they must never take the page down with them.
+   THIS CALL USED TO BE THE FIRST STATEMENT IN THE FILE, against lucide hot-linked from
+   unpkg: on a network where that CDN is slow or blocked (common on mobile carriers), the
+   ReferenceError aborted the whole file, so the nav drawer, the lightbox, the starfield and
+   every scroll reveal silently never bound and the page looked broken/dead.
+   lucide is vendored as lucide.min.js and loaded with defer now, so it is guaranteed to be
+   present by DOMContentLoaded - which is also when we draw the icons. That ordering matters:
+   deferring THIS file instead would have made every interaction (nav, lightbox, reveal)
+   wait for a 450KB download before it bound. */
+function dtfIcons() { try { if (window.lucide && window.lucide.createIcons) window.lucide.createIcons(); } catch (e) { } }
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', dtfIcons);
+else dtfIcons();
 
 /* ---------- nav: solid on scroll + mobile drawer ---------- */
 (function () {
@@ -78,11 +89,14 @@ lucide.createIcons();
 (function () {
   var lb = document.getElementById('lb');
   if (!lb) return;
-  document.querySelectorAll('.shot').forEach(function (fig) {
+  // .shot = showcase figures; [data-zoom] = any image we want tappable (hero panel).
+  // On a phone the lightbox is the only way to get a 980px-wide app screenshot big
+  // enough to read, so pinch-zoom there matters more than on desktop.
+  document.querySelectorAll('.shot, [data-zoom]').forEach(function (fig) {
     fig.addEventListener('click', function () {
-      var img = fig.querySelector('img');
+      var img = fig.tagName === 'IMG' ? fig : fig.querySelector('img');
       if (!img) return;
-      lb.querySelector('img').src = img.src;
+      lb.querySelector('img').src = img.getAttribute('src');
       lb.style.display = 'flex';
     });
   });
