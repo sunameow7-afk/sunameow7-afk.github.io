@@ -160,7 +160,9 @@ section[id],header[id]{scroll-margin-top:96px}
 
 /* hero: install command revealed by the "PowerShell command" tab */
 .cmd-strip{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px;
-  padding:11px 12px 11px 16px;border:1px solid var(--line2);border-radius:14px;
+  /* 18px radius + 16px side padding keeps the Copy pill clear of the rounded
+     corner: with a 14px radius the border arc clipped the pill's top corner. */
+  padding:12px 16px;border:1px solid var(--line2);border-radius:18px;
   background:rgba(255,255,255,.03);max-width:560px}
 .cmd-strip[hidden]{display:none}
 .cmd-strip code{flex:1;min-width:220px;font-family:var(--mono);font-size:12.5px;
