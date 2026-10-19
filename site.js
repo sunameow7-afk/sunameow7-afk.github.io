@@ -140,6 +140,52 @@ else dtfIcons();
   }, true);
 })();
 
+/* ---------- copy install command ----------
+   The command is stored as text in the page and copied verbatim. No inline
+   handlers, so the site keeps working under a strict script-src 'self' CSP. */
+(function () {
+  function fallbackCopy(txt, done) {
+    var t = document.createElement('textarea');
+    t.value = txt; t.setAttribute('readonly', '');
+    t.style.position = 'fixed'; t.style.opacity = '0';
+    document.body.appendChild(t); t.select();
+    try { document.execCommand('copy'); } catch (e) { }
+    t.remove(); done();
+  }
+  document.querySelectorAll('[data-copy]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var sel = btn.getAttribute('data-copy') || '';
+      var el = document.querySelector(sel);
+      if (!el) return;
+      var txt = el.textContent.trim();
+      var old = btn.innerHTML;
+      function done() {
+        btn.textContent = 'Copied';
+        setTimeout(function () { btn.innerHTML = old; }, 1500);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText)
+        navigator.clipboard.writeText(txt).then(done, function () { fallbackCopy(txt, done); });
+      else fallbackCopy(txt, done);
+    });
+  });
+})();
+
+/* ---------- hero: reveal the PowerShell install command ----------
+   The command also lives on dtf.html#get; this puts it one click from the
+   hero so a buyer does not have to hunt for it. The Copy button itself is
+   handled by the [data-copy] block above. ---------- */
+(function () {
+  var btn = document.getElementById('cmdToggle');
+  var strip = document.getElementById('cmdStrip');
+  if (!btn || !strip) return;
+  btn.addEventListener('click', function () {
+    var willOpen = strip.hasAttribute('hidden');
+    if (willOpen) strip.removeAttribute('hidden');
+    else strip.setAttribute('hidden', '');
+    btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+  });
+})();
+
 /* ---------- anti-inspect deterrent: blocks F12 / Ctrl+Shift+I/J/C / Ctrl+U / Ctrl+S / right-click.
    Nothing sensitive lives in these pages — secrets stay server-side. ---------- */
 (function () {

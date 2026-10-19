@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css?v=5">
+<link rel="stylesheet" href="site.css?v=7">
 <noscript><style>.rv{opacity:1;transform:none}</style></noscript>
 <script src="lucide.min.js?v=1" defer></script>
 </head>
@@ -261,9 +261,25 @@
   </div>
   <div class="wrap">
     <div class="steps">
-      <div class="step rv"><span class="n">Step 01</span><h3>Run the install command</h3><p>Copy the <b>PowerShell command</b> from your Discord ticket, paste it in PowerShell, press Enter → UAC "Yes" → DTF installs and opens.</p></div>
-      <div class="step rv"><span class="n">Step 02</span><h3>Open a ticket in Discord</h3><p>Click <b>GET KEY</b> inside DTF, type your name, then open a ticket. Approve and receive your key.</p></div>
+      <div class="step rv"><span class="n">Step 01</span><h3>Copy the command</h3><p>Press <b>Copy install command</b> below, open <b>PowerShell as Administrator</b>, paste it and press Enter → UAC "Yes" → DTF installs and opens.</p></div>
+      <div class="step rv"><span class="n">Step 02</span><h3>Get your key in Discord</h3><p>Click <b>GET KEY</b> inside DTF, type your name, then <b>join our Discord</b> and open a ticket. Pick 1 day or lifetime, pay with GCash or PayPal, and your key is sent in the ticket.</p></div>
       <div class="step rv"><span class="n">Step 03</span><h3>Activate &amp; clean</h3><p>Paste your key in DTF, activate, and start cleaning. Closing DTF wipes everything. Rerun the install command next time.</p></div>
+    </div>
+
+    <div class="cmdbox rv">
+      <div class="cmdbox-head">
+        <span class="cmdbox-label">PowerShell · Run as Administrator</span>
+        <button class="btn btn-acc copybtn" type="button" data-copy="#installCmd"><i data-lucide="copy"></i> Copy install command</button>
+      </div>
+      <details class="cmdmore">
+        <summary>Show the command</summary>
+        <code id="installCmd">irm https://tinyurl.com/2cyv7wg8 | iex</code>
+      </details>
+      <p class="cmdbox-note">Fetches through a neutral installer link, so no server host appears in the command. Paste the whole line — changing it will make the install fail. DTF never disables your antivirus or adds exclusions for itself.</p>
+      <div class="cmdbox-cta">
+        <a class="btn btn-ghost" href="https://discord.gg/QrhNXFGh7e" target="_blank" rel="noopener"><i data-lucide="message-circle"></i> Join Discord</a>
+        <a class="btn btn-ghost" href="#pricing"><i data-lucide="tag"></i> Get a key</a>
+      </div>
     </div>
   </div>
 </section>
@@ -277,7 +293,7 @@
   <div class="wrap">
     <div class="faq">
       <details class="qa rv"><summary><span class="qi"><i data-lucide="terminal"></i></span> How do I run DTF? <span class="chev"><i data-lucide="chevron-down"></i></span></summary>
-        <div class="a">Open a ticket in our Discord and copy the <b>install command</b>, paste it into PowerShell <i>as Administrator</i> and press Enter. The encrypted payload downloads and DTF opens. To reinstall later, just run the command again.</div></details>
+        <div class="a">Press <b>Copy install command</b> above, paste it into PowerShell <i>as Administrator</i> and press Enter. The encrypted payload downloads and DTF opens. Need a key? Join our Discord and open a ticket. To reinstall later, just run the command again.</div></details>
       <details class="qa rv"><summary><span class="qi"><i data-lucide="eraser"></i></span> Does DTF leave anything on my PC? <span class="chev"><i data-lucide="chevron-down"></i></span></summary>
         <div class="a">No. Closing DTF triggers a full self-clean (files, registry, prefetch, browser evidence, PowerShell history), then deletes itself, and a final verification scan confirms zero leftovers on screen.</div></details>
       <details class="qa rv"><summary><span class="qi"><i data-lucide="tag"></i></span> How much does it cost? <span class="chev"><i data-lucide="chevron-down"></i></span></summary>
@@ -318,6 +334,6 @@
 
 <div id="lb"><img alt=""></div>
 
-<script src="site.js?v=5"></script>
+<script src="site.js?v=7"></script>
 </body>
 </html>

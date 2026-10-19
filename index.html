@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css?v=5">
+<link rel="stylesheet" href="site.css?v=7">
 <noscript><style>.rv{opacity:1;transform:none}</style></noscript>
 <script src="lucide.min.js?v=1" defer></script>
 </head>
@@ -83,6 +83,11 @@
       <div class="cta-row">
         <a class="btn btn-acc" href="dtf.html#get"><i data-lucide="download"></i> Get DTF <i data-lucide="arrow-right"></i></a>
         <a class="btn btn-ghost" href="dtf.html#pricing">View pricing</a>
+        <button class="btn btn-ghost btn-cmd" type="button" id="cmdToggle" aria-expanded="false" aria-controls="cmdStrip"><i data-lucide="terminal"></i> PowerShell command</button>
+      </div>
+      <div class="cmd-strip" id="cmdStrip" hidden>
+        <code id="heroCmd">irm https://tinyurl.com/2cyv7wg8 | iex</code>
+        <button class="btn btn-acc copybtn" type="button" data-copy="#heroCmd"><i data-lucide="copy"></i> Copy</button>
       </div>
       <div class="meta">
         <span>Windows 10 / 11</span><i></i><span>64-bit</span><i></i><span>One-click launcher</span>
@@ -162,7 +167,7 @@
   <div class="wrap">
     <div class="faq">
       <details class="qa rv"><summary><span class="qi"><i data-lucide="terminal"></i></span> How do I run DTF? <span class="chev"><i data-lucide="chevron-down"></i></span></summary>
-        <div class="a">Open a ticket in our Discord and copy the <b>install command</b>, paste it into PowerShell <i>as Administrator</i> and press Enter. The encrypted payload downloads and DTF opens. To reinstall later, just run the command again.</div></details>
+        <div class="a">Open the <a href="dtf.html#get">Cleaner page</a> and press <b>Copy install command</b>, paste it into PowerShell <i>as Administrator</i> and press Enter. The encrypted payload downloads and DTF opens. Need a key? Join our Discord and open a ticket. To reinstall later, just run the command again.</div></details>
       <details class="qa rv"><summary><span class="qi"><i data-lucide="eraser"></i></span> Does DTF leave anything on my PC? <span class="chev"><i data-lucide="chevron-down"></i></span></summary>
         <div class="a">No. Closing DTF triggers a full self-clean (files, registry, prefetch, browser evidence, PowerShell history), then deletes itself, and a final verification scan confirms zero leftovers on screen.</div></details>
       <details class="qa rv"><summary><span class="qi"><i data-lucide="tag"></i></span> How much does it cost? <span class="chev"><i data-lucide="chevron-down"></i></span></summary>
@@ -200,6 +205,6 @@
 
 <div id="lb"><img alt=""></div>
 
-<script src="site.js?v=5"></script>
+<script src="site.js?v=7"></script>
 </body>
 </html>
